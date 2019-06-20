@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { withRouter } from "react-router";
+import QuizContext from '../QuizContext/QuizContext';
+import { Link } from 'react-router-dom';
+
+
 
 const Homepage = () => {
+    const value = useContext(QuizContext)
+    const[houseGuest, setHouseGuest] = useState('');
 
     const handleGuestChange = (e) => {
-        let name = e.target.value
-        console.log(name);
+        e.preventDefault();
+        value.houseGuest = houseGuest;
+        
+        console.log('houseguest is', houseGuest, 'context houseGuest is',value.houseGuest);
+     
+        
     }
+
+    
+
+    
+    // setHouseGuest({
+    //     houseGuest: name
+    // })
+    // console.log(houseGuest);
 
     return (
         <div className='home'>
@@ -16,14 +34,25 @@ const Homepage = () => {
          <p>Answer each questions to see how much you really know - remember to expect the unexpected</p>
          </div>
          <div className='start'>
-         <form>
+         <form onSubmit={handleGuestChange}>
          <label className='houseGuest' htmlFor='houseGuest' name='houseGuest'>
            <h3>Enter Your Name, Houseguest</h3>
-           <input type='text'  placeholder='Danielle Reyes' onChange={handleGuestChange}/>
+           <input type='text'  placeholder='Danielle Reyes' onChange={e => setHouseGuest(e.target.value)}/>
            
          </label>
-         <button type='submit'>Start Now</button>
+
+         
+         <button type='submit'>Enter</button>
+      
+         
          </form>
+         <div className="start-quiz hidden">
+         <p>Welcome {houseGuest}, you may now enter the Big Brother Quiz House</p>
+         <Link to='/quiz'>
+         <button type='submit'>Start Now</button>
+         </Link>
+         
+         </div>
          </div>
         </div>
     )
