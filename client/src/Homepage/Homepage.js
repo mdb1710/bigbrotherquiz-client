@@ -37,7 +37,7 @@ const Homepage = () => {
          <form onSubmit={handleGuestChange}>
          <label className='houseGuest' htmlFor='houseGuest' name='houseGuest'>
            <h3>Enter Your Name, Houseguest</h3>
-           <input type='text'  placeholder='Danielle Reyes' onChange={e => setHouseGuest(e.target.value)}/>
+           <input type='text'  placeholder='Danielle Reyes' onChange={e => setHouseGuest(e.target.value)} required/>
            
          </label>
 

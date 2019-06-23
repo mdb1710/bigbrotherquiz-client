@@ -7,6 +7,8 @@ import QuizContext from '../QuizContext/QuizContext';
 
 const QuizSection = () => {
 
+    
+
     const value = useContext(QuizContext)
     return (
         <div className='quiz-page'>

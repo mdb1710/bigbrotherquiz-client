@@ -1,4 +1,5 @@
 import React from 'react';
+import Timer from '../Timer/Timer';
 
 const Scorecard = () => {
 
@@ -7,7 +8,7 @@ const Scorecard = () => {
         
           <p>Question 1 of 20</p>
           <p>Current Score: 0</p>
-          <p>0.05 sec</p>
+          <Timer />
         </div>
     )
 }
