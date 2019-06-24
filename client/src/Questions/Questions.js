@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect }from 'react';
 
 import testQuestions from '../TestQuestions';
 import QuizContext from '../QuizContext/QuizContext';
+import './Questions.css';
 
 const Questions = () => {
 
@@ -16,8 +17,8 @@ const Questions = () => {
              {q.answers.map((answer, i) => {
                  return (
                      <div className='radio' key={i}>
-                       <label>
-                         <input type='radio' />{answer}
+                       <label htmlFor='season'>
+                         <input type='radio' name='season' value={answer}/>{answer}
                        </label>
                      </div>
                  )

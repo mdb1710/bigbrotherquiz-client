@@ -3,17 +3,37 @@ import { withRouter } from "react-router";
 import QuizContext from '../QuizContext/QuizContext';
 import { Link } from 'react-router-dom';
 
+import './Homepage.css';
+
 
 
 const Homepage = () => {
     const value = useContext(QuizContext)
     const[houseGuest, setHouseGuest] = useState('');
+    const[welcomeMessage, setWelcomeMessage] = useState('')
+
+    
 
     const handleGuestChange = (e) => {
         e.preventDefault();
+        
         value.houseGuest = houseGuest;
         
         console.log('houseguest is', houseGuest, 'context houseGuest is',value.houseGuest);
+
+        setWelcomeMessage (() => {
+            return (
+                <div className="start-quiz">
+         <p>Welcome {houseGuest}, you may now enter the Big Brother Quiz House</p>
+         <Link to='/quiz'>
+         <button type='submit'>Start Now</button>
+         </Link>
+         
+         </div>
+            )
+        })
+
+        return welcomeMessage;
      
         
     }
@@ -42,17 +62,11 @@ const Homepage = () => {
          </label>
 
          
-         <button type='submit'>Enter</button>
+         <button type='submit' onSubmit={handleGuestChange}>Enter</button>
       
          
          </form>
-         <div className="start-quiz hidden">
-         <p>Welcome {houseGuest}, you may now enter the Big Brother Quiz House</p>
-         <Link to='/quiz'>
-         <button type='submit'>Start Now</button>
-         </Link>
-         
-         </div>
+          {welcomeMessage}
          </div>
         </div>
     )

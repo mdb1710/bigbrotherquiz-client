@@ -1,27 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Timer = () => {
 
    const[seconds, setSeconds] = useState(30);
    const[clockTimer, setClockTimer] = useState(0);
+
+//    useEffect(() => {
+//        intervalHandle = null;
+//    })
    
 
    const handleCountdown = (e) => {
     e.preventDefault();
     console.log('Countdown has started');
     if (clockTimer === 0 && seconds > 0) {
-        setClockTimer(setInterval(countdown, 1000));
-    }
-    console.log(clockTimer);
+        intervalHandle = setInterval(countdown, 1000);
+
+        setClockTimer(intervalHandle);
+        
+    } 
+    
    }
 
    const countdown = () => {
        
        setSeconds(
-           seconds - 1
+           seconds => seconds - 1
        )
-       if (seconds === 0) {
-           clearInterval(clockTimer)
+       
+       if (seconds === clockTimer) {
+           clearInterval(intervalHandle)
        }
 
    }
@@ -29,11 +37,6 @@ const Timer = () => {
    let secondsRemaining;
    let intervalHandle;
 
-   const tick =() => {
-    
-    setInterval(tick, 1000)
-   }
-    
 
    
 

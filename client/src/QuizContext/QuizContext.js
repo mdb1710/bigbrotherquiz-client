@@ -6,7 +6,8 @@ const QuizContext = React.createContext({
     questions: [],
     questionNumber: null,
     totalRight: '',
-    totalWrong: ''
+    totalWrong: '',
+    confirmAnswer: () => {}
 })
 
 export default QuizContext;

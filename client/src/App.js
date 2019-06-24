@@ -19,9 +19,11 @@ const App = () => {
 
   return (
     <div className="App">
+      
       <header className="App-header">
-        <h1>Big Brother Quiz App - Season One</h1>
+        <h1 className='text-center'>Big Brother Quiz App - Season One</h1>
       </header>
+      
       <main>
       <QuizContext.Provider value={contextValue}>
       <Route 
