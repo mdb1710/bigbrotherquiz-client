@@ -48,7 +48,7 @@ const Homepage = () => {
 
     return (
         <div className='home'>
-         <h2>How Much Do You Know Big Brother</h2>
+         <h2 className='mt-2'>How Much Do You Know Big Brother</h2>
          <div className='intro'>
          <p>Test Your knowledge of your favorite summer guilty pleasure here</p>
          <p>Answer each questions to see how much you really know - remember to expect the unexpected</p>
@@ -57,7 +57,7 @@ const Homepage = () => {
          <form onSubmit={handleGuestChange}>
          <label className='houseGuest' htmlFor='houseGuest' name='houseGuest'>
            <h3>Enter Your Name, Houseguest</h3>
-           <input type='text'  placeholder='Danielle Reyes' onChange={e => setHouseGuest(e.target.value)} required/>
+           <input type='text'  className='form-control' placeholder='Danielle Reyes' onChange={e => setHouseGuest(e.target.value)} required/>
            
          </label>
 

@@ -5,9 +5,10 @@ const QuizContext = React.createContext({
     houseGuest: '',
     questions: [],
     questionNumber: null,
-    totalRight: '',
-    totalWrong: '',
-    confirmAnswer: () => {}
+    totalRight: 0,
+    totalWrong: 0,
+    confirmAnswer: () => {},
+    correctAnswers: []
 })
 
 export default QuizContext;
