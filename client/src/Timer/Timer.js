@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { Redirect } from 'react-router';
+
+import QuizContext from '../QuizContext/QuizContext';
 
 const Timer = () => {
 
+   const value = useContext(QuizContext);
    const[seconds, setSeconds] = useState(30);
    const[clockTimer, setClockTimer] = useState(null);
 
@@ -45,6 +49,8 @@ const Timer = () => {
         // console.log('Countdown has stopped');
         setSeconds('No more');
         // counter = 30;
+        value.display = !value.display;
+        console.log(value.display);
         
        }
 
@@ -63,11 +69,13 @@ const Timer = () => {
    
 
     return (
-       
-        <div className='start-timer'>
-          <p>{seconds} seconds remaining</p>
+       <div className='container w-50'>
+        <div className='start-timer text-danger bg-light border border-danger rounded sticky-top'>
+          <p className='font-weight-bold'>{seconds} seconds remaining</p>
           <button onClick={handleCountdown}>Start</button>
           <button onClick={stopCountdown}>Stop</button>
+        </div>
+
         </div>
        
     )

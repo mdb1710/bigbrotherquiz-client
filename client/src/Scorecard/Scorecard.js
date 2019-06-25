@@ -6,8 +6,8 @@ const Scorecard = () => {
     return(
         <div className='scorecard'>
         
-          <p>Question 1 of 20</p>
-          <p>Current Score: 0</p>
+          <p>There are 21 questons</p>
+          <p>Answer all before time runs OUT!</p>
           <Timer />
         </div>
     )

@@ -7,6 +7,8 @@ const QuizContext = React.createContext({
     questionNumber: null,
     totalRight: 0,
     totalWrong: 0,
+    time: null,
+    display: true,
     confirmAnswer: () => {},
     correctAnswers: []
 })

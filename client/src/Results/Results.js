@@ -33,10 +33,11 @@ const Results = () => {
   
 
     return (
-        <div className='quiz-results'>
-          <p>Results will go here</p>
-          <p>Total Right is {value.totalRight}</p>
-          <p>Total Wrong is {value.totalWrong}</p>
+      <div className='container text-center w-50 h-50 '>
+        <div className='quiz-results justify-context-center p-20'>
+          <h4 className='mb-30 mt-30'>Let's see how you did {value.houseGuest}</h4>
+          <p className='text-success bg-light h-50'>Total Right is {value.totalRight}</p>
+          <p className='bg-danger text-dark'>Total Wrong is {value.totalWrong}</p>
           <button onClick={checkStatus}>See Your Status In the House</button>
           <div className='status-display'>
             {status}
@@ -44,6 +45,7 @@ const Results = () => {
           <Link to='/quiz'>
             <button className='my-3'>Try Again</button>
           </Link>
+        </div>
         </div>
     )
 }

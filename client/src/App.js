@@ -26,14 +26,16 @@ const App = () => {
     questionNumber: null,
     totalRight: '',
     totalWrong: '',
-    correctAnswers: bbAnswers
+    correctAnswers: bbAnswers,
+    time: null,
+    display: true
   }
 
   return (
-    <div className="App">
+    <div className="App text-white w-80">
       
-      <header className="App-header">
-        <h1 className='text-center mt-5 mb-5'>Big Brother Quiz App - Season One</h1>
+      <header className="App-header p-6">
+        <h1 className='text-center my-5 mb-10 shadow-sm text-uppercase bg-info'>Big Brother Quiz App - Season One</h1>
       </header>
       
       <main>

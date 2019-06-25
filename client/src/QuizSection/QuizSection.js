@@ -12,7 +12,7 @@ const QuizSection = () => {
     const value = useContext(QuizContext)
     return (
         <div className='quiz-page text-center'>
-          <h3>Welcome {value.houseGuest}</h3>
+          <h3>Good luck {value.houseGuest}</h3>
         <Scorecard />
         <Questions />
 

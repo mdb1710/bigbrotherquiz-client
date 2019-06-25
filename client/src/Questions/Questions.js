@@ -41,16 +41,18 @@ const Questions = () => {
         let answer = q.correctAnswer
         let qNumber = q.id;
         
-        if(q.answered === false){
+        if(value.display === true){
             return (
              
                 <div key={index} id={qNumber}>
-                 <h3>{qNumber}. What season did {q.name} first appear?</h3>
+                 <h3 className='question my-4'>{qNumber}. What season did {q.name} first appear?</h3>
                  <form>
+                 <div className='input-group justify-content-center'>
+                 <div className='input-group-lg'>
                  {q.answers.map((answer, i) => {
                      return (
-                         <div className='radio' key={i}>
-                           <label htmlFor='season'>
+                         <div className='radio btn-group' key={i} >
+                           <label htmlFor='season' className='btn btn-secondary mx-3'>
                              <input type='radio' name='season' value={answer} id={qNumber} onClick={handleCheckAnswer} required/>{answer}
                              
                            </label>
@@ -59,6 +61,8 @@ const Questions = () => {
                          
                      )
                  })}
+                 </div>
+                 </div>
                  </form>
                  
                  
@@ -68,10 +72,10 @@ const Questions = () => {
                    
                  
              )
-        } else {
+        } else if (value.display !== true){
             return (
                 <div key={index} className='correct'>
-                  <p></p>
+                  <p>Time is Up - Click Below to see your score</p>
                </div>
             )
         }
@@ -82,53 +86,17 @@ const Questions = () => {
 
     useEffect(() => {
         
+        if(value.display !== true){
+            return newQuestions
+        }
         
         
-        
-    })
+    }, [newQuestions, value.display])
 
-    // const options = value.questions.answers.map(answer => {
-    //     return (
-    //         <form key={answer[0]}>
-    //          <label>
-    //           <input type='radio' />{answer[0]}
-    //          </label>
-    //          <label>
-    //           <input type='radio' />{answer[1]}
-    //          </label>
-    //          <label>
-    //           <input type='radio' />{answer[2]}
-    //          </label>
-    //          <label>
-    //           <input type='radio' />{answer[3]}
-    //          </label>
-    //          <button type='submit'>Submit</button>
-    //         </form>
-    //     )
-    // })
+    
     
 
-    /* 
-     <h3>Danielle Reyes -- Which Season</h3>
-          <form>
-            <label>
-            <input type='radio' />Season 11
-            </label>
-            <label>
-            <input type='radio' />Season 14
-            </label>
-            <label>
-            <input type='radio' />Season 5
-            </label>
-            <label>
-            <input type='radio' />Season 3
-            </label>
-            
-           
-          </form>
     
-    
-    */
 
     return(
         <div className='questions'>
@@ -138,7 +106,7 @@ const Questions = () => {
 
           <div className='score-check'>
            <Link to='/results'>
-             <button>Check Your Score</button>
+             <button className='btn-primary my-4 btn-lg'>Check Your Score</button>
            </Link>
           </div>
           
