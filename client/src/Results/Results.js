@@ -12,7 +12,7 @@ const Results = () => {
   const checkStatus = () => {
     let score = value.totalRight - value.totalWrong
     switch(true) {
-      case (score > 19):
+      case (score > 18):
         setStatus('You are the HOH');
         break;
       case (score > 16):

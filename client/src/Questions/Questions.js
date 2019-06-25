@@ -51,7 +51,8 @@ const Questions = () => {
                      return (
                          <div className='radio' key={i}>
                            <label htmlFor='season'>
-                             <input type='radio' name='season' value={answer} id={qNumber} onClick={handleCheckAnswer}/>{answer}
+                             <input type='radio' name='season' value={answer} id={qNumber} onClick={handleCheckAnswer} required/>{answer}
+                             
                            </label>
                            
                          </div>
